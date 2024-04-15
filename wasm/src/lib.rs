@@ -325,7 +325,7 @@ impl Tiktoken {
 #[cfg(feature = "inline")]
 #[wasm_bindgen(typescript_custom_section)]
 const _: &'static str = r#"
-export type TiktokenEncoding = "gpt2" | "r50k_base" | "p50k_base" | "p50k_edit" | "cl100k_base"; 
+export type TiktokenEncoding = "gpt2" | "r50k_base" | "p50k_base" | "p50k_edit" | "cl100k_base";
 
 /**
  * @param {TiktokenEncoding} encoding
@@ -400,6 +400,7 @@ export type TiktokenModel =
     | "gpt-4-32k-0613"
     | "gpt-4-turbo"
     | "gpt-4-turbo-2024-04-09"
+    | "gpt-4-turbo-latest"
     | "gpt-4-turbo-preview"
     | "gpt-4-1106-preview"
     | "gpt-4-0125-preview"
@@ -472,6 +473,7 @@ pub fn encoding_for_model(
         "gpt-3.5-turbo-0125" => Ok("cl100k_base"),
         "gpt-4-turbo" => Ok("cl100k_base"),
         "gpt-4-turbo-2024-04-09" => Ok("cl100k_base"),
+        "gpt-4-turbo-latest" => Ok("cl100k_base"),
         "gpt-4-turbo-preview" => Ok("cl100k_base"),
         "gpt-4-0125-preview" => Ok("cl100k_base"),
         model => Err(JsError::new(
